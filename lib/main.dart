@@ -38,13 +38,13 @@ class MyApp extends StatelessWidget {
             accentColor: Colors.deepOrange,
             fontFamily: 'Lato',
           ),
-          home: ProductsOverviewScreen(),
+          home: const ProductsOverviewScreen(),
           routes: {
-            ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
-            CartScreen.routeName: (ctx) => CartScreen(),
-            OrdersScreen.routeName: (ctx) => OrdersScreen(),
-            UserProductsScreen.routeName: (ctx) => UserProductsScreen(),
-            EditProductScreen.routeName: (ctx) => EditProductScreen(),
+            ProductDetailScreen.routeName: (ctx) => const ProductDetailScreen(),
+            CartScreen.routeName: (ctx) => const CartScreen(),
+            OrdersScreen.routeName: (ctx) => const OrdersScreen(),
+            UserProductsScreen.routeName: (ctx) => const UserProductsScreen(),
+            EditProductScreen.routeName: (ctx) => const EditProductScreen(),
           }),
     );
   }

@@ -91,7 +91,8 @@ class Products with ChangeNotifier {
       _items = loadedProducts;
       notifyListeners();
     } catch (error) {
-      throw (error);
+      // throw (error);
+      rethrow;
     }
   }
 
@@ -120,8 +121,9 @@ class Products with ChangeNotifier {
       // _items.insert(0, newProduct); // at the start of the list
       notifyListeners();
     } catch (error) {
-      print(error);
-      throw error;
+      // print(error);
+      // throw error;
+      rethrow;
     }
   }
 

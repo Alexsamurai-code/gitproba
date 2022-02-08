@@ -6,6 +6,8 @@ import '../providers/product.dart';
 import '../providers/cart.dart';
 
 class ProductItem extends StatelessWidget {
+  const ProductItem({Key? key}) : super(key: key);
+
   // final String id;
   // final String title;
   // final String imageUrl;
@@ -38,6 +40,7 @@ class ProductItem extends StatelessWidget {
               icon: Icon(
                 product.isFavorite ? Icons.favorite : Icons.favorite_border,
               ),
+              // ignore: deprecated_member_use
               color: Theme.of(context).accentColor,
               onPressed: () {
                 product.toggleFavoriteStatus();
@@ -49,18 +52,20 @@ class ProductItem extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           trailing: IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.shopping_cart,
             ),
             onPressed: () {
               cart.addItem(product.id!, product.price, product.title); //TODO
+              // ignore: deprecated_member_use
               Scaffold.of(context).hideCurrentSnackBar();
+              // ignore: deprecated_member_use
               Scaffold.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(
+                  content: const Text(
                     'Added item to cart!',
                   ),
-                  duration: Duration(seconds: 2),
+                  duration: const Duration(seconds: 2),
                   action: SnackBarAction(
                     label: 'UNDO',
                     onPressed: () {
@@ -70,6 +75,7 @@ class ProductItem extends StatelessWidget {
                 ),
               );
             },
+            // ignore: deprecated_member_use
             color: Theme.of(context).accentColor,
           ),
         ),

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,27 +10,29 @@ import '../providers/orders.dart';
 class CartScreen extends StatelessWidget {
   static const routeName = '/cart';
 
+  const CartScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Cart'),
+        title: const Text('Your Cart'),
       ),
       body: Column(
         children: <Widget>[
           Card(
-            margin: EdgeInsets.all(15),
+            margin: const EdgeInsets.all(15),
             child: Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'Total',
                     style: TextStyle(fontSize: 20),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Chip(
                     label: Text(
                       '\$${cart.totalAmount.toStringAsFixed(2)}',
@@ -44,7 +48,7 @@ class CartScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Expanded(
             child: ListView.builder(
               itemCount: cart.items.length,
@@ -81,7 +85,9 @@ class _OrderButtonState extends State<OrderButton> {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      child: _isLoading ? CircularProgressIndicator() : Text('ORDER NOW'),
+      child: _isLoading
+          ? const CircularProgressIndicator()
+          : const Text('ORDER NOW'),
       onPressed: (widget.cart.totalAmount <= 0 || _isLoading)
           ? null
           : () async {
